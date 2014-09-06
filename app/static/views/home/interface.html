@@ -1,0 +1,63 @@
+<style>
+	/* Note: CodeMirror applies its own styles which can be customized in the same way.
+	   To apply a background to the entire editor, we need to also apply it to CodeMirror. */
+	.CodeMirror {
+	  background-color: #34495e;
+	  
+	  color: silver;
+	}
+
+	.CodeMirror div.CodeMirror-cursor {
+	  border-left: 2px solid silver;
+	}
+
+	#interface{
+		text-align: center;
+		border-radius: 20px;
+		margin:0 auto;
+		width: 50%;
+	}
+
+
+
+
+</style>
+
+
+<br>
+
+
+		<div class="well" id="interface">
+				<h1> Custom Editor </h1>
+				<div class='well' style="border-radius: 20px;">
+					<h5>Collaborate with your peers here. </h5>
+					<div id="firepad"></div>
+					<script>
+					  var firepadRef = new Firebase('https://everfire.firebaseio.com/');
+					  var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
+					  var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
+					      { richTextShortcuts: true, richTextToolbar: true, defaultText: 'Start creating your cheet sheets here!' });
+					</script>
+
+
+				</div>
+
+				<br>
+
+				<div class='row'>
+					<h4> Content Options </h4>
+					<button type="button" class="btn btn-default navbar-btn">Create Custom Note</button>
+					<button type="button" class="btn btn-default navbar-btn">Evernote Notebook</button>
+					<button type="button" class="btn btn-default navbar-btn">Upload Pictures</button>
+
+					<br>
+					<button type="button" class="btn btn-info navbar-btn">Generate Some Templates!</button>
+
+
+
+
+
+				</div>
+
+
+			</div>

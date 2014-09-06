@@ -5,5 +5,18 @@ angular.module('Sheetify', ['ngResource', 'ngRoute', 'ui.bootstrap', 'ui.date'])
       .when('/', {
         templateUrl: 'views/home/home.html', 
         controller: 'HomeController'})
+
+      .when('/register', {
+		templateUrl: 'views/home/register.html',
+		controller: 'HomeController'
+      })
+      .when('/interface', {
+        templateUrl: 'views/home/interface.html',
+        controller: 'HomeController'
+      })
+      .when('/review', {
+        templateUrl: 'views/home/review.html',
+        controller: 'HomeController'
+      })
       .otherwise({redirectTo: '/'});
   }]);
