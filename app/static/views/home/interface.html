@@ -10,12 +10,11 @@
 	.CodeMirror div.CodeMirror-cursor {
 	  border-left: 2px solid silver;
 	}
-
 	#interface{
 		text-align: center;
-		border-radius: 20px;
+		border-radius: 10px;
 		margin:0 auto;
-		width: 50%;
+		width: 90%;
 	}
 
 
@@ -27,37 +26,55 @@
 <br>
 
 
-		<div class="well" id="interface">
-				<h1> Custom Editor </h1>
-				<div class='well' style="border-radius: 20px;">
-					<h5>Collaborate with your peers here. </h5>
-					<div id="firepad"></div>
-					<script>
-					  var firepadRef = new Firebase('https://everfire.firebaseio.com/');
-					  var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
-					  var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
-					      { richTextShortcuts: true, richTextToolbar: true, defaultText: 'Start creating your cheet sheets here!' });
-					</script>
+	<div class='row'> 
+
+		<div class='col-sm-5'>
+			<div class="well" id="interface">
+					<h1> Custom Editor </h1>
+					<div class='well' style="border-radius: 20px;">
+						<h5>Collaborate with your peers here. </h5>
+						<div id="firepad"></div>
+						<script>
+						  var firepadRef = new Firebase('https://everfire.firebaseio.com/');
+						  var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
+						  var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
+						      { richTextShortcuts: true, richTextToolbar: true, defaultText: 'Start creating your cheet sheets here!' });
+						</script>
 
 
-				</div>
-
-				<br>
-
-				<div class='row'>
-					<h4> Content Options </h4>
-					<button type="button" class="btn btn-default navbar-btn">Create Custom Note</button>
-					<button type="button" class="btn btn-default navbar-btn">Evernote Notebook</button>
-					<button type="button" class="btn btn-default navbar-btn">Upload Pictures</button>
+					</div>
 
 					<br>
-					<button type="button" class="btn btn-info navbar-btn">Generate Some Templates!</button>
+
+					<div class='row'>
+
+						<br>
+						<button type="button" class="btn btn-info navbar-btn">Generate Some Templates!</button>
 
 
 
+
+
+					</div>
 
 
 				</div>
 
+			</div> <!-- Left col ends here -->
+
+
+
+			<div class='col-sm-7'> <!-- Middle col -->
+
+					<div class='row well'>
+						<h4> Templates </h4>
+						<button type="button" class="btn btn-default navbar-btn">Create Custom Note</button>
+						<button type="button" class="btn btn-default navbar-btn">Evernote Notebook</button>
+						<button type="button" class="btn btn-default navbar-btn">Upload Pictures</button>
+					</div>
 
 			</div>
+
+
+
+		</div> <!-- Row ends here -->
