@@ -119,13 +119,16 @@ def getFirstNoteBook():
 	for note in result_list.notes:
 	    print note.title
 	    notesContents[note.title] = noteStore.getNoteContent(note.guid)
-	    allNotes.append(note)
+	    
+        allNotes.append(note)
+
 
 
 	 
 	print(' ')
 	print( 'Username')
 	print user.username    
+
 
 	# note = Note()
 	# note.title = "I'm a test note!"
@@ -155,8 +158,12 @@ def createNote (firstID, title='I am a test title', contents= 'Testing Contents'
 
 
 getFirstNoteBook()
-print(firstID)
-createNote(firstID)
+dummyData = 'Although the term powder horn is sometimes used for any kind of powder flask, strictly it is a sub-category of flask made from a hollowed bovid horn. Powder flasks were made in a great variety of materials and shapes, though ferrous metals that were prone to give off sparks when hit were usually avoided. '
+
+# print(firstID)
+
+# TEMPORARILY DISABLE CREATE NOTE
+# createNote(firstID)
 
 
 # notes = noteStore.findNotes(authToken, filter, 0, 1000)

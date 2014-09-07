@@ -1,8 +1,64 @@
 
 
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/Chart.js"></script>
 
-<div class='jumbotron' style="text-align:center; background-color: #f5f5f5;">
-	<p>	Testing </p>
 
+<br>
+<br>
+
+
+<div class='jumbotron' style="height: 600px; text-align:center; background-color: #f5f5f5;">
+	
+
+	<h2> Note Data</h2>
+	<br>
+	<div class="col-sm-6"> 
+		<h4> Personalized Feedback </h4>
+
+		<p> Odio lorem expetenda nam in, ea quo posse tempor noluisse. Nec ut labitur offendit posidonium, his feugait albucius antiopam ad, et modus noster mnesarchum his. Vis cu atqui scripserit, his alia fugit partem at. Saepe doming animal ius an, id sit nisl laoreet noluisse. Minimum ocurreret appellantur ut sea, an idque debitis cum, in mei suas quas comprehensam.</p>
+	</div>
+	<div class="col-sm-6"> 
+		<canvas id="canvas" height="350" width="500"></canvas>
+
+
+	</div>
+	
+	
 
 </div>
+
+<br>
+
+	<script>
+
+		var barChartData = {
+			labels : ["January","February","March","April","May","June","July"],
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					data : [65,59,90,81,56,55,40]
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : [28,48,40,19,96,27,100]
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Bar(barChartData);
+	
+	</script>
+
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br>
+
+<br><br><br><br><br><br><br>
