@@ -8,9 +8,32 @@
   <link href="lib/bootstrap-css/css/bootstrap.css" rel="stylesheet">
   <link href="lib/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
   <link href="css/app.css" rel="stylesheet">
+
+
+
+
+  <!-- BOOTSTRAP -->
+<!--   <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css', rel='stylesheet' />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
+
+
+
+  <!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+
+<!-- CodeMirror -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+
+<!-- Firepad -->
+<link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.0.0/firepad.css" />
+<script src="https://cdn.firebase.com/libs/firepad/1.0.0/firepad-min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
 </head>
 <body>
- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color: #34495e;">
    <div class="container">
      <div class="navbar-header">
        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -19,7 +42,7 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </button>
-       <a class="navbar-brand" href="#">Sheetify</a>
+       <a class="navbar-brand" href="#">Cheetify</a>
      </div>
 
      <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,7 +55,167 @@
    </div>
    <!-- /.container -->
   </nav>
-  <div class="container" ng-view></div>
+  <div class="container" ng-controller='HomeController'>
+    
+      
+
+        
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a ng-href="#/interface">Home</a></li>
+          <li><a ng-href="#/">Generator</a></li>
+          <li><a ng-href="#/review">Review</a></li>
+          <li><a ng-href="#/register">Login</a></li>
+        </ul>
+        <h3 class="text-muted"></h3>
+      </div>
+      <br>
+      <br>
+
+
+      <div ng-view=""></div>
+
+
+      <style>
+  /* Note: CodeMirror applies its own styles which can be customized in the same way.
+     To apply a background to the entire editor, we need to also apply it to CodeMirror. */
+  .CodeMirror {
+    background-color: #34495e;
+    
+    color: silver;
+  }
+
+  .CodeMirror div.CodeMirror-cursor {
+    border-left: 2px solid silver;
+  }
+
+  #interface{
+    text-align: center;
+    border-radius: 10px;
+    margin:0 auto;
+    width: 90%;
+  }
+
+
+
+      .greenBack{
+        background-color:#2ecc71;
+      }
+
+      .yellowBack{
+        background-color:#f1c40f;
+      }
+
+      .amberBack{
+        background-color: #e67e22;
+      }
+
+      .redBack{
+        background-color:#e74c3c;
+      }
+
+</style>
+
+
+<br>
+
+  <div class='row' ng-controller='HomeController'> 
+
+    <div class='col-sm-5 animated fadeIn _1'>
+      <div class="well" id="interface">
+          <h1> Current Note </h1>
+          <div class='well' style="border-radius: 20px;">
+            <h5>Your current note from Evernote is shown here</h5>
+            <div id="well" style="background-color: #34495e; color: silver; border-radius: 10px; height: 275px; overflow: auto"> <br>{{defaultDisplay}}</div>
+<!--             <script>
+              var firepadRef = new Firebase('https://everfire.firebaseio.com/');
+              var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
+              var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
+                  { richTextShortcuts: true, richTextToolbar: true, defaultText: 'Start creating your cheet sheets here!' });
+            </script> -->
+
+
+          </div>
+
+          <br>
+
+          <div class='row'>
+
+            <br>
+            <button type="button" class="btn btn-info navbar-btn animated bounce _3" ng-click='generate()'>Analyze a note!</button>
+
+
+
+
+
+          </div>
+
+
+        </div>
+
+      </div> <!-- Left col ends here -->
+
+
+
+      <div class='col-sm-7 animated fadeIn _2' > <!-- Middle col -->
+
+          <div class='row well'>
+            <h4> Notes </h4>
+            <button type="button" class="btn btn-default navbar-btn" ng-click='summarize()'> Summarize </button>
+            <button type="button" class="btn btn-default navbar-btn" ng-click='simplify()'> Simplify </button>
+            <button type="button" class="btn btn-default navbar-btn" ng-click='fluff()'> Fluffify </button>
+            <button type="button" class="btn btn-default navbar-btn" ng-click='funny()'> Make it FUNNY! </button>
+
+            <button type="button" class="btn btn-danger pull-right" ng-click='empty()'> Reset </button>
+            <!-- <button type="button" class="btn btn-default navbar-btn">Upload Pictures</button> -->
+          </div>
+
+
+          <div class='jumbotron' style='background-color: #f5f5f5; height: 250px; overflow: auto;'>
+
+
+            <p> {{curNote}} </p>
+            
+          
+          </div>
+          
+        <button type="button" class="btn btn-info navbar-btn animated bounce _4" style='margin:0 auto;' ng-click="save2ever()">Save to Evernote!</button>
+        <br>
+        <br>
+
+
+        <div class='row well' style="border-radius: 40px;">            
+              <button type="button" class="btn btn-default navbar-btn" style="border-radius: 20px;" > Writing Lvl <span class="badge" ng-class="{yellowBack: on > 0}">{{avgWord}}</span></button>
+              <button type="button" class="btn btn-default navbar-btn" style="border-radius: 20px;"> Post Writing Lvl <span class="badge" ng-class="{redBack: on > 0}" >{{intelligenceLevel}}</span></button>
+              <button type="button" class="btn btn-default navbar-btn" style="border-radius: 20px;"> Avg Sent Length <span class="badge" ng-class="{greenBack: on > 0}"  > {{errors}}</span></button> 
+              <button type="button" class="btn btn-default navbar-btn" style="border-radius: 20px;"> Avg Variance <span class="badge" ng-class="{amberBack: on > 0}" > {{errors}}</span></button> 
+
+        </div>
+
+
+
+
+      </div>
+      
+    
+
+    </div> <!-- Row ends here -->
+
+
+
+      <div class="footer">
+        <p><span class="glyphicon glyphicon-dog"></span> </p>
+      </div>
+
+
+      <br>
+      <br>
+    
+
+  </div>
+
+
+
   <script src="lib/jquery/dist/jquery.js"></script>
   <script src="lib/jquery-ui/ui/jquery-ui.js"></script>
   <script src="lib/lodash/dist/lodash.js"></script>
