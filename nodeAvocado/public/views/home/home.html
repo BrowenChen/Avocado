@@ -1,0 +1,186 @@
+<style>
+	#title{
+
+		text-align: center;
+	}
+
+	#description {
+		text-align: center;
+
+	}
+	#interface{
+		text-align: center;
+		border-radius: 20px;
+		margin:0 auto;
+		width: 50%;
+	}
+
+
+	.firepad {
+	  width: 700px;
+	  height: 450px;
+	  background-color: #34495e; /* dark orange background */
+
+	}
+
+
+</style>
+
+
+
+<br>
+<br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+
+			<div class="jumbotron" style="border-radius: 20px; background-color: #f5f5f5;">
+				<h1>Avocado</h1>
+                <h3> Making your notes simpler. (or smarter-sounding, if you want) </h3>
+				<h4>Get personalized analysis of your writing to improve as well </h4>
+				<p class="lead">
+					<!-- <img src="images/yeoman.png" alt="I'm Yeoman"><br> -->
+					<!-- <i class="fa fa-book fa-2x"></i> -->
+					<br>
+
+					<img src="img/avocado.jpg" class="img img-thumbnail img-responsive" style="border-radius: 270px; height: 200px;">
+					<br>
+					<br>
+					
+				</p>
+			<p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+			</div>
+
+			<br>
+
+
+
+<br>
+
+<div class='container-fluid'>
+	<div class='row well' >
+		<div class='col-sm-4' style="height: 250px;">
+
+			<h2> Natural Language Processing Analysis</h2>
+			<h5> We provide algorithms to extract metrics that include your estimated writing level, sentence length averages, and variance in your writing.</h5>
+
+			<p> This means you can track and analyze all of your work!</p>
+
+
+
+
+
+		</div>
+		<div class='col-sm-4' style="height: 250px;">
+			<h2> Simplify text, or fluff it up</h2> 
+
+			<h5> We utilize NLP algorithms to substitube difficult adjectives with simple words to simplify the comprehension level of a text, or even the other way around.  </h5>
+
+			<p> Great way to impress your professors and friends! </p>
+
+
+		</div>
+
+		<div class='col-sm-4' style="height: 250px;">
+			<h2> Evernote Integration</h2>
+
+			<h5> Share, collaborate, and organize all your work! </h5>
+
+			<p> Seemless integration with Evernote API allows you to automatically save your enhanced writing to your notebooks.</p>
+
+		</div>
+	</div>
+</div>
+
+ 
+			<hr>
+             <span translate="main.like"> <i class='glyphicon glyphicon-heart'> </i>  If you like this hack idea, please give us some suggitions at </span>&nbsp;<a href="https://github.com/browenchen/sheetify" target="_blank" translate="main.github">Github</a>!
+
+
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!--		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    		<script type="text/javascript">
+    			$(function() {
+    				                                                            	//the form wrapper (includes all forms)
+    				var $form_wrapper                                           	= $('#form_wrapper'),
+    				                                                            	//the current form is the one with class active
+    				                                                            	$currentForm	= $form_wrapper.children('form.active'),
+    				                                                            	//the change form links
+    				                                                            	$linkform		= $form_wrapper.find('.linkform');
+    				                                                            	         	
+    				//get width and height of each form and store them for later	         					
+    				$form_wrapper.children('form').each(function(i){
+    					var $theForm	= $(this);
+    					//solve the inline display none problem when using fadeIn fadeOut
+    					if(!$theForm.hasClass('active'))
+    						$theForm.hide();
+    					$theForm.data({
+    						width 	: $theForm.width(),
+    						height	: $theForm.height()
+    					});
+    				});
+    				
+    				//set width and height of wrapper (same of current form)
+    				setWrapperWidth();
+    				
+    				/*
+    				clicking a link (change form event) in the form
+    				makes the current form hide.
+    				The wrapper animates its width and height to the 
+    				width and height of the new current form.
+    				After the animation, the new form is shown
+    				*/
+    				$linkform.bind('click',function(e){
+    					var $link 	= $(this);
+    					var target	= $link.attr('rel');
+    					$currentForm.fadeOut(400,function(){
+    						//remove class active from current form
+    						$currentForm.removeClass('active');
+    						//new current form
+    						$currentForm= $form_wrapper.children('form.'+target);
+    						//animate the wrapper
+    						$form_wrapper.stop()
+    									 .animate({
+    										width 	: $currentForm.data('width') + 'px',
+    										height	: $currentForm.data('height') + 'px'
+    									 },500,function(){
+    										//new form gets class active
+    										$currentForm.addClass('active');
+    										//show the new form
+    										$currentForm.fadeIn(400);
+    									 });
+    					});
+    					e.preventDefault();
+    				});
+    				
+    				function setWrapperWidth(){
+    					$form_wrapper.css({
+    						width 	: $currentForm.data('width') + 'px',
+    						height	: $currentForm.data('height') + 'px'
+    					});
+    				}
+    				
+    				/*
+    				for the demo we disabled the submit buttons
+    				if you submit the form, you need to check the 
+    				which form was submited, and give the class active 
+    				to the form you want to show
+    				*/
+    				$form_wrapper.find('input[type="submit"]')
+    							 .click(function(e){
+    							    	e.preventDefault();
+    							 });	
+    			});
+        </script> -->
