@@ -1,0 +1,34 @@
+html(ng-app='angular-bootstrap-slider-test')
+	head
+		title Angular Bootstrap Slider test
+		link(rel='stylesheet', href='../bower_components/bootstrap/dist/css/bootstrap.css')
+		link(rel='stylesheet', href='../bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.css')
+	body(ng-controller='TestCtrl')
+		| Testing 
+		.col-md-2.col-md-offset-2
+			slider(ng-model='sliders.sliderValue', min='{{testOptions.min}}', step='{{testOptions.step}}', max='{{testOptions.max}}', value='{{testOptions.value}}')
+			| &#x9;&#x9;&#x9;{{sliders.sliderValue}}
+			br
+			br
+			br
+			br
+			span(slider='', ng-model='sliders.secondSliderValue', min='{{minTest}}', slider-id='{{idTest}}')
+			| &#x9;&#x9;&#x9;{{sliders.secondSliderValue}}
+			br
+			br
+			br
+			br
+			span(slider='', ng-model='sliders.rangeSliderValue', min='{{testOptions.min}}', max='{{testOptions.max}}', range='true', slider-id='rangeSlider1')
+			|          &#x9;{{sliders.rangeSliderValue}}
+			br
+			br
+			br
+			br
+			span(ng-model='sliders.rangeSliderValue2', slider='', min='{{testOptions.min}}', max='{{testOptions.max}}', range='true', value='[55,70]', slider-id='rangeSlider2')
+			|          &#x9;{{sliders.rangeSliderValue2}}
+		script(src='../bower_components/jquery/dist/jquery.js')
+		script(src='../bower_components/angular/angular.js')
+		script(src='../bower_components/bootstrap/dist/js/bootstrap.js')
+		script(src='../bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js')
+		script(src='/js/slider.js')
+		script(src='/js/test.js')
